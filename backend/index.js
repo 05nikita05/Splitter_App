@@ -12,7 +12,7 @@ const app = express();
 
 // CORS setup for allowing frontend access
 app.use(cors({
-  origin: 'https://splitter-app.onrender.com', // Frontend URL (update as needed)
+  origin: 'https://splitter-app-6fyv.vercel.app', // Frontend URL (update as needed)
   methods: ['GET', 'POST', 'PUT','DELETE'], // Allow the appropriate HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
