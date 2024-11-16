@@ -3,7 +3,7 @@ import axios from 'axios';
 const token = localStorage.getItem('token'); 
 
 const axiosInstance = axios.create({
-  baseURL: 'https://splitter-app.onrender.com/api',
+  baseURL: 'https://splitter-app-6fyv.vercel.app/api',
 
 });
 // Add interceptor to include the token
