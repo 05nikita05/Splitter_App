@@ -51,6 +51,7 @@ function Signin() {
       if (error.response && error.response.status === 401) {
         setError('Invalid username or password.');
       } else {
+        console.log(error)
         setError('Unable to sign in. Please try again later.');
       }
     } finally {

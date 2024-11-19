@@ -44,7 +44,7 @@ const ViewExpense = () => {
 
       // Fetch updated expenses
       const response = await axiosInstance.get("/expenses");
-      setExpenses(response.data);
+      setExpenses(response.data.expenses);
     } catch (error) {
       console.error("Error updating expense:", error);
     }

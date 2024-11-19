@@ -26,7 +26,6 @@ router.get('/expenses', authenticateUser, async (req, res) => {
 // POST route for creating a new expense
 router.post('/expenses', authenticateUser, async (req, res) => {
   const { title, description, amount, participants } = req.body;
-
   try {
     const newExpense = new Expense({
       title,
