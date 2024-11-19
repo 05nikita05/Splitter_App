@@ -1,0 +1,14 @@
+{
+    "version": 2,
+    "routes": [
+      {
+        "src": "/.well-known/vercel/microfrontend-routing",
+        "status": 404
+      },
+      {
+        "src": "/.well-known/vercel/*",
+        "status": 404
+      }
+    ]
+  }
+  
