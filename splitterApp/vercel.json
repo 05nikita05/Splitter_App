@@ -9,6 +9,12 @@
         "src": "/.well-known/vercel/*",
         "status": 404
       }
-    ]
+    ],
+    
+      "rewrites": [
+        { "source": "/(.*)", "destination": "/" }
+      ]
+    
+    
   }
   
