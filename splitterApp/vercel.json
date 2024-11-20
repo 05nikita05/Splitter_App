@@ -1,20 +1,21 @@
 {
-    "version": 2,
-    "routes": [
-      {
-        "src": "/.well-known/vercel/microfrontend-routing",
-        "status": 404
-      },
-      {
-        "src": "/.well-known/vercel/*",
-        "status": 404
-      }
-    ],
-    
-      "rewrites": [
-        { "source": "/(.*)", "destination": "/" }
-      ]
-    
-    
-  }
-  
+  "version": 2,
+  "redirects": [
+    {
+      "source": "/.well-known/vercel/microfrontend-routing",
+      "destination": "/",
+      "statusCode": 404
+    },
+    {
+      "source": "/.well-known/vercel/*",
+      "destination": "/",
+      "statusCode": 404
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/old-url",
+      "destination": "/new-url"
+    }
+  ]
+}
