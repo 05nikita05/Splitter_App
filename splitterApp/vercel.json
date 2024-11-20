@@ -1,17 +1,5 @@
 {
   "version": 2,
-  "redirects": [
-    {
-      "source": "/.well-known/vercel/microfrontend-routing",
-      "destination": "/",
-      "statusCode": 404
-    },
-    {
-      "source": "/.well-known/vercel/*",
-      "destination": "/",
-      "statusCode": 404
-    }
-  ],
   "rewrites": [
     {
       "source": "/old-url",
