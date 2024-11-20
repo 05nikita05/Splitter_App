@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import axios from 'axios';
+import axiosInstance from '../../axiosInstance';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
-import axiosInstance from '../../axiosInstance';
+
 function Signin() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -25,45 +25,48 @@ function Signin() {
 
     try {
       // Send a request to the server for signing in
-      const res = await axiosInstance.post('/auth/signin', {
-        username,
-        password,
-      });
-      console.log(res.data)
-
+      const res = await axiosInstance.post('/auth/signin', { username, password });
+    
+      console.log(res.data);
+    
       // Extract token and user data from the response
-      const { token, user } = res.data;
-
+      const { token, user, message } = res.data;
+    
       if (token && user) {
         // Save token and user in localStorage
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify(user));
-
+    
         // Call login function from AuthContext to update authentication state
         login(user);
-
+    
         alert('User signed in successfully!');
         navigate('/create-expense'); // Redirect after login
+      } else if (message) {
+        // If the server responds with a message (e.g., "User not found")
+        console.warn('Message from server:', message);
+        // Optionally, suppress the error or show a generic one
+        setError(message +'! please sign up');
       } else {
+        // Generic fallback error
         setError('Invalid server response. Please try again later.');
       }
     } catch (error) {
-      if (error.response && error.response.status === 401) {
-        setError('Invalid username or password.');
-      } else {
-        console.log(error)
-        setError('Unable to sign in. Please try again later.');
-      }
+      
+        console.error('Error during sign-in:', error);
+        setError('Something went wrong. Please try again later.');
+      
     } finally {
       setLoading(false);
     }
+    
   };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white shadow-lg rounded-lg p-8 max-w-md w-full">
         <h2 className="text-2xl font-bold text-center text-gray-700 mb-6">Sign In</h2>
-        
+
         {error && <div className="text-red-500 text-center mb-4">{error}</div>}
 
         <form onSubmit={handleSignin} className="flex flex-col gap-4">
