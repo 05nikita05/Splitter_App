@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 // Dynamically set the base URL based on the environment
-const baseURL = import.meta.env.NODE_ENV === 'production'
-  ? import.meta.env.BACKEND_URL // Production URL
-  : 'http://localhost:5000/api/'; // Development URL
+const baseURL = import.meta.env.NODE_ENV === 'Development'
+  ?'http://localhost:5000/api/' // Development URL
+  : import.meta.env.BACKEND_URL ;// Production URL
 
 const axiosInstance = axios.create({
   baseURL, // Use the dynamically set base URL
