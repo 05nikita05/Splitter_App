@@ -3,7 +3,7 @@ import axios from 'axios';
 // Dynamically set the base URL based on the environment
 const baseURL = process.env.NODE_ENV === 'production'
   ? process.env.BACKEND_URL // Production URL
-  : 'http://localhost:5000/api/'; // Development URL
+  : process.env.LOCAL_URI; // Development URL
 
 const axiosInstance = axios.create({
   baseURL, // Use the dynamically set base URL

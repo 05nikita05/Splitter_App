@@ -12,7 +12,7 @@ const app = express();
 
 // CORS setup for allowing frontend access
 app.use(cors({
-  origin: [process.env.FRONTEND_URL,'http://localhost:5173'], // Frontend URL (update as needed)
+  origin: [process.env.FRONTEND_URL,process.env.LOCAL_URI], // Frontend URL (update as needed)
   methods: ['GET', 'POST', 'PUT','DELETE'], // Allow the appropriate HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
