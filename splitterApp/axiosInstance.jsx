@@ -7,6 +7,8 @@ const baseURL = import.meta.env.NODE_ENV === 'production'
 
 const axiosInstance = axios.create({
   baseURL, // Use the dynamically set base URL
+  withCredentials: true,
+
 });
 // Add interceptor to include the token
 axiosInstance.interceptors.request.use((config) => {
