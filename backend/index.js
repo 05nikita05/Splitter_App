@@ -18,12 +18,12 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials : true,
 }));
+app.options('*', cors());
 
 app.use(express.json()); // To parse JSON request bodies
 
 // Connect to MongoDB
 connectDB();
-app.options('*', cors());
 
 // Mount expense routes at /api
 app.use('/api', expenseRoutes);
