@@ -9,6 +9,7 @@ const cors = require('cors'); // Import the CORS middleware
 
 require('dotenv').config(); // Import dotenv to load environment variables
 const app = express();
+app.use(express.urlencoded({ extended: true }));
 
 // CORS setup for allowing frontend access
 app.use(cors({
