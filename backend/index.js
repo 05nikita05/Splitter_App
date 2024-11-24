@@ -16,12 +16,14 @@ app.use(cors({
   origin: [process.env.FRONTEND_URL,process.env.LOCAL_URI], // Frontend URL (update as needed)
   methods: ['GET', 'POST', 'PUT','DELETE'], // Allow the appropriate HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials : true,
 }));
 
 app.use(express.json()); // To parse JSON request bodies
 
 // Connect to MongoDB
 connectDB();
+app.options('*', cors());
 
 // Mount expense routes at /api
 app.use('/api', expenseRoutes);
